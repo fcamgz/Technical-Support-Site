@@ -1,0 +1,42 @@
+﻿@model IncidentViewModel
+@{
+    ViewBag.Title = "Incident Manager";
+}
+
+<a class="btn btn-sm text-@(Model.Filter == "all" ? "light" : "primary") @(Model.Filter == "all" ? "bg-primary" : "")" asp-action="List" asp-route-filter="all">All</a>
+<a class="btn btn-sm text-@(Model.Filter == "open" ? "light" : "primary") @(Model.Filter == "open" ? "bg-primary" : "")" asp-action="List" asp-route-filter="open">Open</a>
+<a class="btn btn-sm text-@(Model.Filter == "unassigned" ? "light" : "primary") @(Model.Filter == "unassigned" ? "bg-primary" : "")" asp-action="List" asp-route-filter="unassigned">Unassigned</a>
+<h1>Incidents</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Product</th>
+            <th scope="col">Date Opened</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Incident incident in Model.Incidents)
+        {
+            <tr>
+                <td>@incident.Title</td>
+                <td>@incident.Customer.Firstname @incident.Customer.Lastname </td>
+                <td>@incident.Product.Name</td>
+                <td>@incident.DateOpened.ToString("MM'/'dd'/'yyyy")</td>
+                <td>
+                    <a asp-controller="Incident" asp-action="Edit" asp-route-id="@incident.IncidentId" asp-route-slug="@incident.Slug" class="btn btn-primary">Edit</a>
+                    <a asp-controller="Incident" asp-action="Delete" asp-route-id="@incident.IncidentId" asp-route-slug="@incident.Slug" class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="d-flex justify-content-lg-between">
+    <a asp-controller="Home" asp-action="Index" class="mb-2 btn btn-primary">Back</a>
+    <a asp-controller="Incident" asp-action="Add" class="btn btn-primary">Add Incident</a>
+</div>
+
+

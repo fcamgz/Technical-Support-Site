@@ -1,0 +1,62 @@
+﻿@model RegistrationViewModel
+@{
+    ViewBag.Title = "Registrations";
+}
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<h1>Customer: @Model.Customer.Firstname @Model.Customer.Lastname</h1>
+
+<form asp-action="GetCustomer">
+    <button class="btn btn-primary" type="submit">Switch Customer</button>
+</form>
+
+<h1>Registrations</h1>
+@if (Model.Registrations.Count != 0)
+{
+<div class="table-responsive-lg">
+    <table class="table table-striped">
+        <thead>Products
+            <tr>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Release Date</th>
+                <th>Price</th>
+                <th>Option</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Registration r in Model.Registrations)
+            {
+            <tr>
+                <td>@r.Product.Name</td>
+                <td>@r.Product.Code</td>
+                <td>@r.Product.ReleaseDate</td>
+                <td>@r.Product.Price</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@r.RegistrationId" class="btn btn-primary mt-2">Delete</a>
+                </td>
+            </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+}
+else
+{
+    <h1>No Products Registered</h1>
+}
+
+
+<h1>Products</h1>
+<form asp-action="AddRegistration" onsubmit="return registerProductValidation()">
+    <select class="form-control" name="id" id="registerProductSelect">
+        <option value="default">Select a Prouduct</option>
+        @foreach (Product p in Model.Products)
+        {
+            <option value="@p.ProductId">@p.Name</option>
+        }
+    </select>
+    <button class="btn btn-primary mt-2" type="submit">Register</button>
+</form>

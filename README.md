@@ -1,5 +1,6 @@
 ![sample image](https://github.com/fcamgz/Technical-Support-Site/blob/main/images/technicalsupport.png?raw=true)
 ![sample image](https://github.com/fcamgz/Technical-Support-Site/blob/main/images/FireShot%20Capture%20078%20-%20Registrations%20-%20localhost.png?raw=true)
 ![sample image](https://github.com/fcamgz/Technical-Support-Site/blob/main/images/FireShot%20Capture%20063%20-%20Incident%20Manager%20-%20localhost.png?raw=true)
+![sample image](https://github.com/fcamgz/Technical-Support-Site/blob/main/images/FireShot%20Capture%20072%20-%20Incident%20-%20localhost.png?raw=true)
 ![sample image](https://github.com/fcamgz/Technical-Support-Site/blob/main/images/FireShot%20Capture%20051%20-%20Customer%20Manager%20-%20localhost.png?raw=true)
 ![sample image](https://github.com/fcamgz/Technical-Support-Site/blob/main/images/FireShot%20Capture%20087%20-%20%20-%20localhost.png?raw=true)
